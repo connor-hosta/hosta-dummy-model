@@ -5,6 +5,7 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
+      - pip install toml
       - export MODEL_NAME=$(python -c "import toml; config = toml.load('pyproject.toml'); print(config['project']['name'])")
       - export PROJECT_VERSION=$(python -c "import toml; config = toml.load('pyproject.toml'); print(config['project']['version'])")
       - ./bin/pre-build.sh

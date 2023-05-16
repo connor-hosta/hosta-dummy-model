@@ -8,4 +8,7 @@ if [[ -n "$image_details" ]]; then
 
   # Update the tag of the image to "latest"
   aws ecr put-image-tagging --repository-name $MODEL_NAME --image-digest "$image_digest" --image-tag latest
+
+  # terminate build
+  aws codebuild stop-build --id ${CODEBUILD_BUILD_ID}
 fi
