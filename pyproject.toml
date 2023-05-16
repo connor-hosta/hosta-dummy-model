@@ -1,0 +1,4 @@
+[project]
+name = "dummy-model"
+description = "Dummy model used for testing model deployment and infrastructure changes"
+version = "0.1.0"
